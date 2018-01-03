@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<title>試驗設計</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="jquery-3.2.1.min.js"></script>
+		<script src="rbd.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<ul>
+					<li><a href="index.html">CRD</a></li>
+					<li><a href="rbd.html" class="active">RBD</a></li>
+					<li><a href="latin.html">拉丁</a></li>
+					<li><a href="2factors.html">二因子</a></li>
+					<li><a href="2split.html">二裂區</a></li>
+					<li><a href="other.html">其他</a></li>
+				</ul>
+			</header>
+			
+			<nav>
+				<table id="col-row_table">
+					<tr>
+						<td align="left">
+							<input type="button" value="建立表格" id="createBtn" style="width:100px;height:25px;"/>
+						</td>
+						<td>
+							<span>區集數：</span>
+							<!--<input type="text" class="ans" id="crdTreat">-->
+							<select class="numSelect" id="num1">
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							<!--	<option>6</option>	-->
+							</select>
+						</td>
+						<td>
+							<span>處理數：</span>
+							<!--<input type="text" class="ans" id="crdRepli">-->
+							<select class="numSelect" id="num2">
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+							<!--	<option>6</option>	-->
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="left">
+							<input type="button" value="分析資料" id="anovaBtn" style="width:100px;height:25px;"/>
+						</td>
+						<td align="left">
+							<input type="button" value="Missing Value" id="anovaBtn" style="width:120px;height:25px;"/>
+						</td>
+						<td align="left">
+						
+						</td>
+					</tr>
+				</table>	
+				<br/>
+				<table id="crd_table">
+					<tr>
+						<th>Source</th>
+						<th>d.f.</th>
+						<th>SS</th>
+						<th>MS</th>
+						<th>F</th>
+					</tr>
+					<tr>
+						<td>Total</td>
+						<td id="df1"></td>
+						<td id="ss1"></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Block</td>
+						<td id="df2"></td>
+						<td id="ss2"></td>
+						<td id="ms2"></td>
+						<td id="f2"></td>
+					</tr>
+					<tr>
+						<td>Treatment</td>
+						<td id="df3"></td>
+						<td id="ss3"></td>
+						<td id="ms3"></td>
+						<td id="f3"></td>
+					</tr>
+					<tr>
+						<td>Error</td>
+						<td id="df4"></td>
+						<td id="ss4"></td>
+						<td id="ms4"></td>
+						<td></td>
+					</tr>
+				</table>
+				<p id="f-test"></p>
+			</nav>
+			
+			
+			<article>
+				<form id="dataForm">
+				</form>
+			</article>
+			
+			
+			<footer>&copy; Plant Medicine Yang</footer>
+		</div>
+	</body>
+</html>
