@@ -1,0 +1,209 @@
+<html>
+	<head>
+		<title>試驗設計</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="jquery-3.2.1.min.js"></script>
+		<script src="2factors.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<ul>
+					<li><a href="index.html">CRD</a></li>
+					<li><a href="rbd.html">RBD</a></li>
+					<li><a href="latin.html">拉丁</a></li>
+					<li><a href="2factors.html" class="active">二因子</a></li>
+					<li><a href="2split.html">二裂區</a></li>
+					<li><a href="other.html">其他</a></li>
+				</ul>
+			</header>
+			
+			<nav>
+				<table id="col-row_table">
+					<tr>
+						<td align="left">
+							<input type="button" value="建立表格" id="createBtn" style="width:100px;height:25px;"/>
+						</td>
+						<td width="35%">
+							<span>區集數：</span>
+							<select class="numSelect" id="num1">
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+						</td>
+						<td width="36%" align="right">
+							
+						</td></tr><tr>
+						<td align="left">
+							<input type="button" value="分析資料" id="anovaBtn" style="width:100px;height:25px;"/>
+						</td><td>
+							<span>Ａ因子：</span>
+							<select class="numSelect" id="num2">
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+						</td><td>
+							<span>Ｂ因子：</span>
+							<select class="numSelect" id="num3">
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+				<br/>	
+				<table id="crd_table">
+					<tr>
+						<th>Source</th>
+						<th>d.f.</th>
+						<th>SS</th>
+						<th>MS</th>
+						<th>F</th>
+					</tr>
+					<tr>
+						<td>Total</td>
+						<td id="df1"></td>
+						<td id="ss1"></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Block</td>
+						<td id="df2"></td>
+						<td id="ss2"></td>
+						<td id="ms2"></td>
+						<td id="f2"></td>
+					</tr>
+					<tr>
+						<td>factor A</td>
+						<td id="df3"></td>
+						<td id="ss3"></td>
+						<td id="ms3"></td>
+						<td id="f3"></td>
+					</tr>
+					<tr>
+						<td>factor B</td>
+						<td id="df4"></td>
+						<td id="ss4"></td>
+						<td id="ms4"></td>
+						<td id="f4"></td>
+					</tr>
+					<tr>
+						<td>A x B</td>
+						<td id="df5"></td>
+						<td id="ss5"></td>
+						<td id="ms5"></td>
+						<td id="f5"></td>
+					</tr>
+					<tr>
+						<td>Error</td>
+						<td id="df6"></td>
+						<td id="ss6"></td>
+						<td id="ms6"></td>
+						<td></td>
+					</tr>
+				</table>
+				<br/>
+				<table id="abc_table">
+					<tr>
+						<th></th>
+						<th>A1</th>
+						<th>A2</th>
+						<th>A3</th>
+						<th>A4</th>
+						<th>A5</th>
+						<th>sum</th>
+						<th>mean</th>
+					</tr>
+					<tr>
+						<td>B1</td>
+						<td id="a1b1"></td>
+						<td id="a2b1"></td>
+						<td id="a3b1"></td>
+						<td id="a4b1"></td>
+						<td id="a5b1"></td>
+						<td id="sumB1"></td>
+						<td id="meanB1"></td>
+					</tr>
+					<tr>
+						<td>B2</td>
+						<td id="a1b2"></td>
+						<td id="a2b2"></td>
+						<td id="a3b2"></td>
+						<td id="a4b2"></td>
+						<td id="a5b2"></td>
+						<td id="sumB2"></td>
+						<td id="meanB2"></td>
+					</tr>
+					<tr>
+						<td>B3</td>
+						<td id="a1b3"></td>
+						<td id="a2b3"></td>
+						<td id="a3b3"></td>
+						<td id="a4b3"></td>
+						<td id="a5b3"></td>
+						<td id="sumB3"></td>
+						<td id="meanB3"></td>
+					</tr>
+					<tr>
+						<td>B4</td>
+						<td id="a1b4"></td>
+						<td id="a2b4"></td>
+						<td id="a3b4"></td>
+						<td id="a4b4"></td>
+						<td id="a5b4"></td>
+						<td id="sumB4"></td>
+						<td id="meanB4"></td>
+					</tr>
+					<tr>
+						<td>B5</td>
+						<td id="a1b5"></td>
+						<td id="a2b5"></td>
+						<td id="a3b5"></td>
+						<td id="a4b5"></td>
+						<td id="a5b5"></td>
+						<td id="sumB5"></td>
+						<td id="meanB5"></td>
+					</tr>
+					<tr>
+						<td>sum</td>
+						<td id="sumA1"></td>
+						<td id="sumA2"></td>
+						<td id="sumA3"></td>
+						<td id="sumA4"></td>
+						<td id="sumA5"></td>
+						<td id="sumTot"></td>
+						<td id="meanTotB"></td>
+					</tr>
+					<tr>
+						<td>mean</td>
+						<td id="meanA1"></td>
+						<td id="meanA2"></td>
+						<td id="meanA3"></td>
+						<td id="meanA4"></td>
+						<td id="meanA5"></td>
+						<td id="meanTotA"></td>
+						<td id="meanTot"></td>
+					</tr>
+				</table>
+				<p id="f-test"></p>
+			</nav>
+			
+			
+			<article>
+				<form id="dataForm">
+				</form>
+			</article>
+			
+			
+			<footer>&copy; Plant Medicine Yang</footer>
+		</div>
+	</body>
+</html>
